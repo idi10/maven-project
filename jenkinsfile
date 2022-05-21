@@ -58,8 +58,8 @@ pipeline {
             }
         }
 
-stage('validate') {
-    agent {
+        stage('validate') {
+        agent {
                  docker { image 'maven:3.8.5-openjdk-8-slim' }
              }
 
@@ -72,8 +72,8 @@ stage('validate') {
 
 
 
-stage('test') {
-    agent {
+        stage('test') {
+         agent {
                  docker { image 'maven:3.8.5-openjdk-8-slim' }
              }
 
@@ -84,8 +84,8 @@ stage('test') {
             }
         }
 
-stage('package') {
-    agent {
+        stage('package') {
+         agent {
                  docker { image 'maven:3.8.5-openjdk-8-slim' }
              }
 
@@ -99,8 +99,8 @@ stage('package') {
             }
         }
 
-stage('verify') {
-    agent {
+        stage('verify') {
+         agent {
                  docker { image 'maven:3.8.5-openjdk-8-slim' }
              }
 
@@ -112,8 +112,8 @@ stage('verify') {
         }
 
 
-stage('install') {
-    agent {
+        stage ('install') {
+         agent {
                  docker { image 'maven:3.8.5-openjdk-8-slim' }
              }
 
@@ -144,7 +144,7 @@ stage('install') {
 
 
 
-stage('build ') {
+          stage('build ') {
 
             steps {
                sh '''
@@ -158,7 +158,7 @@ stage('build ') {
 
 
 
-      stage('Docker Login') {
+           stage('Docker Login') {
 
 			steps {
 				sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
@@ -168,7 +168,7 @@ stage('build ') {
            
             
 
-     stage('Docker push ') {
+         stage('Docker push ') {
             steps {
                sh '''
               docker push devopseasylearning2021/eric:$ImageTAG 
