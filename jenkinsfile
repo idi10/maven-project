@@ -123,10 +123,8 @@ stage('install') {
                '''
             }
         }
-
-
-
-stage('SonarQube analysis') {
+       
+       stage('SonarQube analysis') {
             agent {
                 docker {
 
@@ -145,12 +143,12 @@ stage('SonarQube analysis') {
         }
 
 
-       
+
 stage('build ') {
 
             steps {
                sh '''
-           docker build -t devopseasylearning2021/kantin:$ImageTAG .
+           docker build -t devopseasylearning2021/eric:$ImageTAG .
                '''
             }
         }
@@ -173,7 +171,7 @@ stage('build ') {
      stage('Docker push ') {
             steps {
                sh '''
-              docker push devopseasylearning2021/kantin:$ImageTAG 
+              docker push devopseasylearning2021/eric:$ImageTAG 
                 '''
             }
         }
