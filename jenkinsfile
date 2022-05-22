@@ -58,8 +58,8 @@ pipeline {
             }
         }
 
-        stage('validate') {
-        agent {
+stage('validate') {
+    agent {
                  docker { image 'maven:3.8.5-openjdk-8-slim' }
              }
 
@@ -72,8 +72,8 @@ pipeline {
 
 
 
-        stage('test') {
-         agent {
+stage('test') {
+    agent {
                  docker { image 'maven:3.8.5-openjdk-8-slim' }
              }
 
@@ -84,8 +84,8 @@ pipeline {
             }
         }
 
-        stage('package') {
-         agent {
+stage('package') {
+    agent {
                  docker { image 'maven:3.8.5-openjdk-8-slim' }
              }
 
@@ -99,8 +99,8 @@ pipeline {
             }
         }
 
-        stage('verify') {
-         agent {
+stage('verify') {
+    agent {
                  docker { image 'maven:3.8.5-openjdk-8-slim' }
              }
 
@@ -112,8 +112,8 @@ pipeline {
         }
 
 
-        stage ('install') {
-         agent {
+stage('install') {
+    agent {
                  docker { image 'maven:3.8.5-openjdk-8-slim' }
              }
 
@@ -123,8 +123,10 @@ pipeline {
                '''
             }
         }
-       
-       stage('SonarQube analysis') {
+
+
+
+stage('SonarQube analysis') {
             agent {
                 docker {
 
@@ -143,12 +145,12 @@ pipeline {
         }
 
 
-
-          stage('build ') {
+       
+stage('build ') {
 
             steps {
                sh '''
-           docker build -t devopseasylearning2021/eric:$ImageTAG .
+           docker build -t devopseasylearning2021/kantin:$ImageTAG .
                '''
             }
         }
@@ -158,7 +160,7 @@ pipeline {
 
 
 
-           stage('Docker Login') {
+      stage('Docker Login') {
 
 			steps {
 				sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
@@ -168,10 +170,10 @@ pipeline {
            
             
 
-         stage('Docker push ') {
+     stage('Docker push ') {
             steps {
                sh '''
-              docker push devopseasylearning2021/eric:$ImageTAG 
+              docker push devopseasylearning2021/kantin:$ImageTAG 
                 '''
             }
         }
