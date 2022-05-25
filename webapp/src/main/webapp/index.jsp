@@ -377,7 +377,7 @@ Alternatively if you want to just have a single hero
                         <h3 class="font-bold text-gray-900">About</h3>
                         <p class="py-4">
                             Welcome to Devops Easy Learning and EK TECH SOFTWARE SOLUTION Shopping website.
-                            From here we will CRACK Devops.
+                            From here Idrissa will be a Devops Engineer.
                         </p>
                     </div>
                 </div>
